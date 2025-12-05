@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindicato dos Agricultores Familiares e Empreendedores Familiares Rurais</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2d5a27;
+            --secondary-color: #4a7c3a;
+            --accent-color: #e8b923;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --gray-color: #6c757d;
+        }
+        
+        body {
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-accent:hover {
+            background-color: #d4a61c;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray-color);
+            display: block;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Informações Section */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Contato Section */
+        .contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo .logo-text {
+            color: white;
+        }
+        
+        .footer-logo .logo-text span {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 15px;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .header-container {
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tractor logo-icon"></i>
+                <div class="logo-text">
+                    Sindicato dos Agricultores Familiares
+                    <span>Empreendedores Familiares Rurais e Patronal</span>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#informacoes">Informações</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Representando e Fortalecendo a Agricultura Familiar</h1>
+            <p>Nosso sindicato atua na defesa dos direitos dos agricultores familiares e empreendedores rurais, promovendo desenvolvimento sustentável e qualidade de vida no campo.</p>
+            <a href="#contato" class="btn btn-accent">Entre em Contato</a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre o Sindicato</h2>
+            <p>O Sindicato dos Agricultores Familiares e Empreendedores Familiares Rurais e Patronal é uma instituição comprometida com o desenvolvimento rural sustentável e a defesa dos interesses dos trabalhadores do campo.</p>
+            <p>Atuamos na região de Várzea Alegre e entorno, oferecendo suporte jurídico, assessoria técnica, capacitações e representação legal para nossos associados, contribuindo para o fortalecimento da agricultura familiar e do empreendedorismo rural.</p>
+            <p>Nossa missão é promover a qualidade de vida no campo, apoiando os agricultores familiares e empreendedores rurais através de ações que valorizem sua produção, garantam seus direitos e impulsionem o desenvolvimento regional.</p>
+        </div>
+    </section>
+
+    <!-- Informações Section -->
+    <section id="informacoes" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Informações Institucionais</h2>
+            <p>Confira abaixo os dados oficiais do nosso sindicato:</p>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Dados Cadastrais</h3>
+                    <p><strong>Nome:</strong> Sindicato dos Agricultores Familiares e Empreendedores Familiares Rurais e Patronal</p>
+                    <p><strong>CNPJ:</strong> 60.495.539/0001-90</p>
+                    <p><strong>Registro:</strong> Entidade legalmente constituída para representação da categoria</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Endereço</h3>
+                    <p><strong>Localização:</strong> Rua Antônio Alves Feitosa (Bitu), Zézinho Costa</p>
+                    <p><strong>Cidade:</strong> Várzea Alegre</p>
+                    <p><strong>Estado:</strong> Ceará</p>
+                    <p>Atendemos toda a região e comunidades rurais do município e entorno.</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Contato</h3>
+                    <p><strong>Telefone:</strong> (88) 99943-1863</p>
+                    <p><strong>Atendimento:</strong> Segunda a Sexta, das 8h às 17h</p>
+                    <p><strong>WhatsApp:</strong> Disponível para mensagens</p>
+                    <p>Entre em contato para esclarecer dúvidas, obter informações sobre associados ou agendar atendimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <p>Precisa de informações ou deseja se associar? Entre em contato conosco!</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(88) 99943-1863</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Rua Antônio Alves Feitosa (Bitu)<br>Zézinho Costa<br>Várzea Alegre - CE</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horário de Atendimento</h4>
+                            <p>Segunda a Sexta-feira<br>Das 8h às 17h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Associados</h4>
+                            <p>Interessados em associar-se podem entrar em contato para obter informações sobre benefícios e documentação necessária.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Área de Atuação</h3>
+                    <p>Nosso sindicato atua principalmente no município de Várzea Alegre e região, prestando serviços para:</p>
+                    
+                    <ul style="list-style-position: inside; margin-left: 20px; margin-top: 15px;">
+                        <li>Agricultores familiares</li>
+                        <li>Empreendedores rurais</li>
+                        <li>Produtores agrícolas</li>
+                        <li>Trabalhadores rurais</li>
+                        <li>Assentamentos da reforma agrária</li>
+                        <li>Comunidades tradicionais</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;">Oferecemos assessoria em:</p>
+                    <ul style="list-style-position: inside; margin-left: 20px;">
+                        <li>Direitos trabalhistas rurais</li>
+                        <li>Acesso a crédito rural</li>
+                        <li>Programas de incentivo à agricultura familiar</li>
+                        <li>Regularização fundiária</li>
+                        <li>Certificações e selos de qualidade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <i class="fas fa-tractor logo-icon"></i>
+                        <div class="logo-text">
+                            Sindicato dos Agricultores Familiares
+                            <span>Empreendedores Familiares Rurais e Patronal</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: rgba(255,255,255,0.8);">Trabalhando pelo desenvolvimento rural sustentável e direitos dos agricultores familiares.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre o Sindicato</a></li>
+                        <li><a href="#informacoes">Informações</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> (88) 99943-1863</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Antônio Alves Feitosa (Bitu)<br>Zézinho Costa, Várzea Alegre - CE</p>
+                    <p><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 17h</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sindicato dos Agricultores Familiares e Empreendedores Familiares Rurais e Patronal. Todos os direitos reservados. CNPJ: 60.495.539/0001-90</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            
+            // Alterar ícone do botão
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Fechar menu ao clicar em um link (em telas pequenas)
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 576) {
+                    document.getElementById('mainNav').classList.remove('active');
+                    document.querySelector('#mobileMenuBtn i').classList.remove('fa-times');
+                    document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
